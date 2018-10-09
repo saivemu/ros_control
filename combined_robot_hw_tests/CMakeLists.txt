@@ -20,6 +20,11 @@ catkin_package(
   CATKIN_DEPENDS combined_robot_hw hardware_interface roscpp
 )
 
+if(MSVC)
+  add_definitions(-DNO_STRICT)
+  add_compile_options(/Zc:__cplusplus)
+endif()
+
 add_library(${PROJECT_NAME}
   src/my_robot_hw_1.cpp
   src/my_robot_hw_2.cpp
@@ -28,6 +33,7 @@ add_library(${PROJECT_NAME}
 )
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 add_executable(combined_robot_hw_dummy_app src/dummy_app.cpp)
 target_link_libraries(combined_robot_hw_dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})

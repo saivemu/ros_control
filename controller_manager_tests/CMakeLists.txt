@@ -13,6 +13,11 @@ catkin_package(
   LIBRARIES ${PROJECT_NAME}
   )
 
+if(MSVC)
+  add_definitions(-DNO_STRICT)
+  add_compile_options(/Zc:__cplusplus)
+endif()
+
 #common commands for building c++ executables and libraries
 add_library(${PROJECT_NAME}
   src/effort_test_controller.cpp
@@ -24,6 +29,7 @@ add_library(${PROJECT_NAME}
   src/vel_eff_controller.cpp
 )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 add_executable(dummy_app src/dummy_app.cpp)
 target_link_libraries(dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})
