@@ -31,10 +31,6 @@ catkin_package(
 ## Build ##
 ###########
 
-if(MSVC)
-  add_compile_options(/Zc:__cplusplus)
-endif()
-
 # Build
 include_directories(include ${catkin_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS})
 
