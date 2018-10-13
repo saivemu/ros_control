@@ -20,10 +20,6 @@ catkin_package(
   CATKIN_DEPENDS combined_robot_hw hardware_interface roscpp
 )
 
-if(MSVC)
-  add_compile_options(/Zc:__cplusplus)
-endif()
-
 add_library(${PROJECT_NAME}
   src/my_robot_hw_1.cpp
   src/my_robot_hw_2.cpp
