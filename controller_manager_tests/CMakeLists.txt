@@ -13,10 +13,6 @@ catkin_package(
   LIBRARIES ${PROJECT_NAME}
   )
 
-if(MSVC)
-  add_compile_options(/Zc:__cplusplus)
-endif()
-
 #common commands for building c++ executables and libraries
 add_library(${PROJECT_NAME}
   src/effort_test_controller.cpp
