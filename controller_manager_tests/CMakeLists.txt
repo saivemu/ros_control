@@ -24,7 +24,6 @@ add_library(${PROJECT_NAME}
   src/vel_eff_controller.cpp
 )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 add_executable(dummy_app src/dummy_app.cpp)
 target_link_libraries(dummy_app ${PROJECT_NAME} ${catkin_LIBRARIES})

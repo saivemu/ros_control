@@ -39,7 +39,6 @@ add_library(${PROJECT_NAME}_parser
   src/transmission_parser.cpp include/transmission_interface/transmission_parser.h
 )
 target_link_libraries(${PROJECT_NAME}_parser ${catkin_LIBRARIES} ${TinyXML_LIBRARIES})
-set_target_properties(${PROJECT_NAME}_parser PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 # Transmission loader library
 add_library(${PROJECT_NAME}_loader
@@ -50,7 +49,6 @@ target_link_libraries(${PROJECT_NAME}_loader
   ${PROJECT_NAME}_parser
   ${catkin_LIBRARIES}
   ${TinyXML_LIBRARIES})
-set_target_properties(${PROJECT_NAME}_loader PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 
 add_library(${PROJECT_NAME}_loader_plugins
@@ -65,7 +63,6 @@ add_library(${PROJECT_NAME}_loader_plugins
   src/bidirectional_velocity_joint_interface_provider.cpp include/transmission_interface/bidirectional_velocity_joint_interface_provider.h
   src/bidirectional_effort_joint_interface_provider.cpp   include/transmission_interface/bidirectional_effort_joint_interface_provider.h)
 target_link_libraries(${PROJECT_NAME}_loader_plugins ${PROJECT_NAME}_loader)
-set_target_properties(${PROJECT_NAME}_loader_plugins PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 #############
 ## Install ##
