@@ -34,8 +34,8 @@
 #define CONTROLLER_MANAGER_CONTROLLER_MANAGER_H
 
 #include "controller_manager/controller_spec.h"
-#ifndef WIN32
-#include <pthread.h>
+#ifndef _WIN32
+  #include <pthread.h>
 #endif
 #include <cstdio>
 #include <map>
