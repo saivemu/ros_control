@@ -39,10 +39,6 @@
 #include <chrono>
 #include <thread>
 
-#ifdef _WIN32
-  #include <chrono>
-  #include <thread>
-#endif
 
 namespace controller_manager{
 
